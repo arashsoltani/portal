@@ -30,4 +30,9 @@ Route::get('/icons/svg', 'PagesController@svg');
 // Quick search dummy route to display html elements in search dropdown (header search)
 Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
 
-Route::get('/register', 'Security/RegisterController@register');
+Route::get('/register', 'Security\RegisterController@register')->name('register');
+Route::post('/register', 'Security\RegisterController@registerUser');
+
+Route::get('/login', 'Security\LoginController@login')->name('login');
+Route::post('login', 'Security\LoginController@postLogin');
+Route::get('/logout','Security\LoginController@logout');
